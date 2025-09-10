@@ -2,6 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 
 function App() {
+	const [formData, setFormData] = useState({
+		author: "",
+		title: "",
+		public: false,
+		body: "",
+	});
+
 	return (
 		<>
 			<div className="container">
@@ -20,6 +27,8 @@ function App() {
 										type="text"
 										className="form-control"
 										placeholder="Autore"
+										name="author"
+										value={formData.author}
 									/>
 								</div>
 								<div className="col-12 col-lg-6">
@@ -30,6 +39,8 @@ function App() {
 										type="text"
 										className="form-control"
 										placeholder="Titolo"
+										name="title"
+										value={formData.title}
 									/>
 								</div>
 								<div className="col-12 col-lg-6">
@@ -37,7 +48,12 @@ function App() {
 										Pubblico
 									</label>
 									<div>
-										<input type="checkbox" className="form-check-input" />
+										<input
+											type="checkbox"
+											name="public"
+											checked={formData.public}
+											className="form-check-input"
+										/>
 									</div>
 								</div>
 								<div className="col-12 col-lg-6">
@@ -45,8 +61,9 @@ function App() {
 										Testo
 									</label>
 									<textarea
-										name=""
-										id=""
+										name="body"
+										value={formData.body}
+										id="body"
 										rows="4"
 										className="form-control"
 										placeholder="Testo"
