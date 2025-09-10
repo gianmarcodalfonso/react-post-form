@@ -1,3 +1,6 @@
+import { useState } from "react";
+import axios from "axios";
+
 function App() {
 	return (
 		<>
@@ -8,7 +11,7 @@ function App() {
 					</div>
 					<div className="col-12">
 						<form>
-							<div className="row">
+							<div className="row g-4">
 								<div className="col-12 col-lg-6">
 									<label htmlFor="" className="form-label">
 										Autore
@@ -31,9 +34,11 @@ function App() {
 								</div>
 								<div className="col-12 col-lg-6">
 									<label htmlFor="" className="form-label">
-										Autore
+										Pubblico
 									</label>
-									<input type="checkbox" className="form-check-input" />
+									<div>
+										<input type="checkbox" className="form-check-input" />
+									</div>
 								</div>
 								<div className="col-12 col-lg-6">
 									<label htmlFor="" className="form-label">
@@ -46,6 +51,9 @@ function App() {
 										className="form-control"
 										placeholder="Testo"
 									></textarea>
+								</div>
+								<div className="col-12">
+									<button className="btn btn-success">Invia</button>
 								</div>
 							</div>
 						</form>
