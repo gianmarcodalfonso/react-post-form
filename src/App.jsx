@@ -14,10 +14,20 @@ function App() {
 
 		const newFormData = {
 			...formData,
-			[name]: type == "checkbox" ? checked : value,
+			[name]: type === "checkbox" ? checked : value,
 		};
 
 		setFormData(newFormData);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		axios
+			.post("https://**67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData)
+			.then((resp) => {
+				console.log(resp.data);
+			})
+			.catch((err) => console.log("Errore nella chiamata: " + err));
 	};
 
 	return (
@@ -28,7 +38,7 @@ function App() {
 						<h1>React post form</h1>
 					</div>
 					<div className="col-12">
-						<form>
+						<form onSubmit={handleSubmit}>
 							<div className="row g-4">
 								<div className="col-12 col-lg-6">
 									<label htmlFor="" className="form-label">
